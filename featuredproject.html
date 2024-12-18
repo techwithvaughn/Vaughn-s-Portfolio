@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Landing Page - Vaughn Armstrong</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../Vaughn-portfolio-main/stylesheets/Portfolio.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        body {
+            width: 100vw;
+            height: 90vh;
+            color: #fff;
+            background-color: #131313; /* Default dark background */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .light-mode {
+            background-color: #ffffff; /* Light background */
+            color: #131313; /* Dark text */
+        }
+
+        h1,
+        h2 {
+            font-family: 'Open Sans';
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .shake {
+            animation: shake-animation 4.72s ease infinite;
+            transform-origin: 50% 50%;
+        }
+
+        @keyframes shake-animation {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            1.78571% {
+                transform: translate(5px, 0);
+            }
+
+            3.57143% {
+                transform: translate(0, 0);
+            }
+
+            5.35714% {
+                transform: translate(5px, 0);
+            }
+
+            7.14286% {
+                transform: translate(0, 0);
+            }
+
+            8.92857% {
+                transform: translate(5px, 0);
+            }
+
+            10.71429% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .backdrop {
+            -moz-box-shadow: 0px 6px 5px #111;
+            -webkit-box-shadow: 0px 6px 5px #111;
+            box-shadow: 0px 2px 10px #111;
+            -moz-border-radius: 190px;
+            -webkit-border-radius: 190px;
+            border-radius: 190px;
+        }
+
+        .linktree {
+            width: 120px;
+            height: 120px;
+            background-image: url("https://i.imgur.com/oggcsIH.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+        }
+
+        /* Add styles for the toggle button */
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: row; /* Align icons horizontally */
+            align-items: center; /* Center align icons */
+            justify-content: space-between;
+            gap: 10px; /* Space between icons and button */
+            margin-right: 10px; /* Space from right edge */
+        }
+
+        .light-mode .toggle-btn {
+            background-color: #131313; /* Dark background for button in light mode */
+            color: #fff; /* White text for button in light mode */
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin: 0; /* No additional margin */
+        }
+
+        .light-mode .icon {
+            filter: invert(1); /* Invert colors for icons in light mode */
+        }
+
+        /* Button styles */
+        .btn {
+            color: inherit; /* Keep the text color as per the parent */
+            transition: color 0.3s; /* Smooth transition for text color */
+        }
+
+        /* Hover effect for buttons */
+        .btn:hover {
+            color: #ffcc00; /* Optional hover color change */
+        }
+
+        /* Dynamic text container */
+        .dynamic-text {
+            padding-top: 20px; /* Space before the dynamic text */
+            padding-bottom: 20px; /* Space after the dynamic text */
+            margin: 0; /* No additional margin */
+            transition: height 0.2s; /* Smooth transition for height change */
+            overflow: hidden; /* Hide overflow */
+            height: auto; /* Height will adjust to content */
+        }
+
+        /* Back button styles */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #fff;
+            border-radius: 20px;
+            color: inherit;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateX(-5px);
+        }
+
+        .light-mode .back-btn {
+            border-color: #131313;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <button onclick="history.back()" class="back-btn">← Back</button>
+
+    <div class="container">
+        <div class="col-xs-12">
+            <div class="text-center" style="padding-top: 30px; padding-bottom: 30px;">
+                <h1 style="color: inherit;">Vaughn Armstrong</h1>
+                <h2 id="dynamic-text" class="dynamic-text" style="color: inherit;"></h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-xs-12">
+            <div class="text-center">              
+                <div style="padding-bottom: 30px;">
+                    <button onclick="location.href='gamingnews/index.html'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">Gaming news</button>
+                </div>
+                <div style="padding-bottom: 30px;">
+                    <button onclick="location.href='#'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">Travel Project (don't click)</button>
+                </div>
+                <div style="padding-bottom: 30px;">
+                    <button onclick="location.href='#'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">JDF Project (Do not click)</button>
+                </div>
+                <div style="padding-bottom: 30px;">
+                    <button onclick="location.href='mobilegame/index.html'" type="button" class="btn btn-outline-light" style="width: 80%; padding-top:10px; padding-bottom:10px; font-weight: 600;">MobileGame</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="" style="color: #34312f;" target="_blank"></a>
+    </div>
+
+    <div class="toggle-btn" onclick="toggleMode()">
+        <img src="https://img.icons8.com/?size=100&id=URphhfIjBd0M&format=png&color=000000" id="mode-icon" class="icon" alt="Dark Mode Icon" />
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script>
+        const words = [
+            "Please note that these are school projects.",
+            "Please note all credits are given where due.",
+        ];
+        const typingSpeed = 50; // Typing speed in milliseconds
+        const deletingSpeed = 50; // Deleting speed in milliseconds
+        const pauseTime = 500; // Pause time before starting next word
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const dynamicTextElement = document.getElementById("dynamic-text");
+            const currentWord = words[wordIndex];
+
+            if (isDeleting) {
+                dynamicTextElement.textContent = "Welcome! " + currentWord.slice(0, charIndex--);
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    charIndex = 0;
+                    setTimeout(type, pauseTime);
+                } else {
+                    setTimeout(type, deletingSpeed);
+                }
+            } else {
+                dynamicTextElement.textContent = "Welcome! " + currentWord.slice(0, charIndex++);
+                if (charIndex > currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, pauseTime);
+                } else {
+                    setTimeout(type, typingSpeed);
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            type();
+        });
+
+        function toggleMode() {
+            document.body.classList.toggle("light-mode");
+            const icon = document.getElementById("mode-icon");
+            icon.src = icon.src.includes("URphhfIjBd0M") ?
+                "https://img.icons8.com/??size=100&id=Gr1sAI1NE7Ui&format=png&color=000000" : 
+                "https://img.icons8.com/?size=100&id=URphhfIjBd0M&format=png&color=000000";
+        }
+    </script>
+</body>
+
+</html>

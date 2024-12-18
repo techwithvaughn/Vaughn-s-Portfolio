@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Page</title>
+    <style>
+        body {
+	width: 100wh;
+	height: 90vh;
+	background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+	background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .popup-content {
+            background-color: #242424;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            max-width: 80%;
+            text-align: center;
+            color:#fff
+        }
+
+        /* Button styling */
+        .button {
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #141414;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Popup HTML -->
+    <div class="popup-overlay">
+        <div class="popup-content">
+            <h2>Thank You for Visiting!</h2>
+            <p>This project was created by:</p>
+            <ul>
+                <li>Vaughn Armstrong</li>
+                <li>Jermaine Smith</li>
+                <li>Michael Welsh</li>
+                <li>Tanya Porter</li>
+            </ul>
+            <p>Click the button below to continue!</p>
+            <!-- Button to navigate to another page -->
+            <a href="../gamingnews/index.html" class="button">Explore</a>
+        </div>
+    </div>
+
+    <!-- Your other HTML content here -->
+
+</body>
+
+</html>
