@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	position: relative;
+	background-color: #a7ffeb;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+header {
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 200px;
+	transition: 0.5s ease;
+}
+
+header .brand {
+	color: #000000;
+	font-size: 1.2em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+header .brand img {
+	max-height: 40px;
+	margin-right: 10px;
+}
+
+header .navigation {
+	position: relative;
+}
+
+header .navigation .navigation-pages a {
+	position: relative;
+	color: #000000;
+	font-size: 1em;
+	font-weight: 500;
+	text-decoration: none;
+	margin-left: 30px;
+	transition: 0.3s ease;
+}
+
+header .navigation .navigation-pages a:before {
+	content: '';
+	position: absolute;
+	background: #000000;
+	width: 0;
+	height: 3px;
+	bottom: 0;
+	left: 0;
+	transition: 0.3s ease;
+}
+
+header .navigation .navigation-pages a:hover:before {
+	width: 100%;
+}
+
+
+footer {
+	background-color: #000000af;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+}
+
+footer p {
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+footer a {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+
+/* Style for the social media icons */
+.social-icons {
+	display: flex;
+	justify-content: center;
+}
+
+
+.social-icons a {
+	text-decoration: none;
+	padding: 10px;
+	background-color: white;
+	margin: 10px;
+	border-radius: 50px;
+
+}
+
+.social-icons a i {
+	font-size: 2em;
+	color: black;
+	opacity: 0.7;
+	/* 70% opacity */
+
+}
+
+.social-icons a:hover {
+	background-color: black;
+	transition: 0.5s;
+}
+
+.social-icons a:hover i {
+	color: white;
+	transition: 0.5;
+}
+
+.sub-button {
+	background-color: #000;
+	color: #fff;
+	border: 0;
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	font-size: 14px;
+	padding: 10px 25px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+button:hover {
+	background-color: #a7ffeb;
+}
+
+
+/* Styles for the contact form container */
+.contact-form {
+	margin-top: 20px;
+	/* Adds space at the top */
+	text-align: center;
+	/* Center-aligns the content */
+}
+
+/* Styles for the heading of the contact form */
+.contact-form h3 {
+	font-size: 24px;
+	/* Sets font size */
+	margin-bottom: 10px;
+	/* Adds space at the bottom */
+}
+
+/* Styles for the contact form itself */
+.contact-form form {
+	max-width: 400px;
+	/* Sets the maximum width */
+	margin: 0 auto;
+	/* Centers the form horizontally */
+}
+
+/* Styles for the fieldset within the form */
+.contact-form fieldset {
+	border: 1px solid #ccc;
+	/* Adds a border */
+	border-radius: 4px;
+	/* Rounds the corners */
+	padding: 50px;
+	/* Adds internal spacing */
+	margin-bottom: 20px;
+	/* Adds space at the bottom */
+}
+
+/* Styles for the legend within the fieldset */
+.contact-form legend {
+	font-weight: bold;
+	/* Sets font weight */
+}
+
+/* Styles for labels within the form */
+.contact-form label {
+	display: block;
+	/* Displays as block element */
+	margin-bottom: 5px;
+	/* Adds space at the bottom */
+	font-weight: bold;
+	/* Sets font weight */
+}
+
+/* Styles for text, tel, and email input fields */
+.contact-form input[type="text"],
+.contact-form input[type="tel"],
+.contact-form input[type="email"] {
+	width: 100%;
+	/* Occupies full width */
+	padding: 10px;
+	/* Adds internal spacing */
+	margin-bottom: 10px;
+	/* Adds space at the bottom */
+	border: 1px solid #ccc;
+	/* Adds a border */
+	border-radius: 4px;
+	/* Rounds the corners */
+}
+
+/* Styles for buttons and input[type="reset"] */
+.contact-form button,
+.contact-form input[type="reset"] {
+	background-color: #333;
+	/* Sets background color */
+	color: white;
+	/* Sets text color */
+	border: none;
+	/* Removes border */
+	border-radius: 4px;
+	/* Rounds the corners */
+	padding: 10px 20px;
+	/* Adds internal spacing */
+	margin-right: 10px;
+	/* Adds space at the right */
+	cursor: pointer;
+	/* Sets cursor to pointer */
+	transition: background-color 0.3s;
+	/* Adds transition effect */
+}
+
+/* Hover styles for buttons and input[type="reset"] */
+.contact-form button:hover,
+.contact-form input[type="reset"]:hover {
+	background-color: #555;
+	/* Changes background color on hover */
+}
+
+/* Styles for radio buttons and labels */
+.contact-form input[type="radio"] {
+	margin-right: 5px;
+	/* Adds space on the right */
+}
+
+.contact-form label[for^="contact-gender"] {
+	display: inline-block;
+	/* Displays as inline-block element */
+	margin-right: 15px;
+	/* Adds space on the right */
+}

@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+header {
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 200px;
+	transition: 0.5s ease;
+}
+
+header .brand {
+	color: #000;
+	font-size: 1.2em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+header .brand img {
+	max-height: 40px;
+	margin-right: 10px;
+}
+
+header .navigation {
+	position: relative;
+}
+
+header .navigation .navigation-pages a {
+	position: relative;
+	color: #000;
+	font-size: 1em;
+	font-weight: 500;
+	text-decoration: none;
+	margin-left: 30px;
+	transition: 0.3s ease;
+}
+
+header .navigation .navigation-pages a:before {
+	content: '';
+	position: absolute;
+	background: #000;
+	width: 0;
+	height: 3px;
+	bottom: 0;
+	left: 0;
+	transition: 0.3s ease;
+}
+
+header .navigation .navigation-pages a:hover:before {
+	width: 100%;
+}
+
+
+
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
+	background-color: #a7ffeb;
+}
+
+/* Define a class that hides elements */
+.hidden {
+    display: none;
+}
+
+/* Center align heading and add padding */
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+/* Styling for the section containing terms */
+#hideSection {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 20px;
+}
+
+/* Ordered list style */
+ol {
+    list-style-type: decimal;
+    padding-left: 30px;
+}
+
+/* Styling for list items */
+li {
+    margin-bottom: 20px;
+}
+
+/* Styling for subheadings */
+h3 {
+    margin-top: 10px;
+}
+
+/* Unordered list style */
+ul {
+    list-style-type: disc;
+    padding-left: 30px;
+}
+
+/* Styling for buttons container */
+#buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Styling for buttons */
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #1c7ccc;
+}
+
+/* Styling for confirmation text */
+#confirmationText {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+footer {
+	background-color: #000000af;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+}
+
+footer p {
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+footer a {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+
+/* Style for the social media icons */
+.social-icons {
+	display: flex;
+	justify-content: center;
+}
+
+
+.social-icons a {
+	text-decoration: none;
+	padding: 10px;
+	background-color: white;
+	margin: 10px;
+	border-radius: 50px;
+
+}
+
+.social-icons a i {
+	font-size: 2em;
+	color: black;
+	opacity: 0.7;
+	/* 70% opacity */
+
+}
+
+.social-icons a:hover {
+	background-color: black;
+	transition: 0.5s;
+}
+
+.social-icons a:hover i {
+	color: white;
+	transition: 0.5;
+}
+
+.sub-button {
+	background-color: #000;
+	color: #fff;
+}
+
+/* Style for the "Go to Top" button */
+.go-to-top {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	background-color: #333;
+	color: white;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+}
+
+.go-to-top a {
+	color: white;
+	text-decoration: none;
+}
+
+/* Style for the FontAwesome icon */
+.fas.fa-arrow-up {
+	font-size: 24px;
+}

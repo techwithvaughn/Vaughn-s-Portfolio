@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	background: url("../images/ccbackground.png");
+}
+
+
+header {
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 200px;
+	transition: 0.5s ease;
+}
+
+header .brand {
+	color: #000000;
+	font-size: 1.2em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+header .brand img {
+	max-height: 40px;
+	margin-right: 10px;
+}
+
+header .navigation {
+	position: relative;
+}
+
+header .navigation .navigation-pages a {
+	position: relative;
+	color: #000000;
+	font-size: 1em;
+	font-weight: 500;
+	text-decoration: none;
+	margin-left: 30px;
+	transition: 0.3s ease;
+}
+
+header .navigation .navigation-pages a:before {
+	content: '';
+	position: absolute;
+	background: #000000;
+	width: 0;
+	height: 3px;
+	bottom: 0;
+	left: 0;
+	transition: 0.3s ease;
+}
+
+header .navigation .navigation-pages a:hover:before {
+	width: 100%;
+}
+
+/* Styling for the Offerings Section */
+.offering_section {
+	padding: 40px 0;
+}
+
+.offering_container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1px;
+}
+
+.box {
+	width: calc(33.33% - 20px);
+	background-color: #fff;
+	border-radius: 15px;
+	padding: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out;
+}
+
+.box:hover {
+	transform: translateY(-5px);
+}
+
+.detail-box h2 {
+	font-size: 24px;
+	color: #000;
+	margin-bottom: 10px;
+}
+
+.detail-box p {
+	font-size: 16px;
+	color: #777;
+	margin-bottom: 20px;
+}
+
+.offering_features {
+	list-style-type: disc;
+	padding-left: 20px;
+}
+
+.offering_features li {
+	font-size: 14px;
+	color: #555;
+	margin-bottom: 5px;
+}
+
+.btn-box a {
+	display: inline-block;
+	padding: 10px 20px;
+	background-color: #ff4646;
+	color: #fff;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.btn-box a:hover {
+	background-color: #ff2e2e;
+}
+
+
+footer {
+	background-color: #00000091;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+}
+
+footer p {
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+footer a {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+
+/* Style for the social media icons */
+.social-icons {
+	display: flex;
+	justify-content: center;
+}
+
+
+.social-icons a {
+	text-decoration: none;
+	padding: 10px;
+	background-color: white;
+	margin: 10px;
+	border-radius: 50px;
+
+}
+
+.social-icons a i {
+	font-size: 2em;
+	color: black;
+	opacity: 0.7;
+	/* 70% opacity */
+
+}
+
+.social-icons a:hover {
+	background-color: black;
+	transition: 0.5s;
+}
+
+.social-icons a:hover i {
+	color: white;
+	transition: 0.5;
+}
+
+.sub-button {
+	background-color: #000;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-size: 14px;
+	padding: 10px 20px;
+}
+
+
+button:hover {
+	background-color: #53f5cfde;
+}

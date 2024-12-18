@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	background-color: #a7ffeb;
+}
+
+header {
+	z-index: 999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 15px 200px;
+	transition: 0.5s ease;
+}
+
+header .brand {
+	color: #000;
+	font-size: 1.2em;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+}
+
+header .brand img {
+	max-height: 40px;
+	margin-right: 10px;
+}
+
+header .navigation {
+	position: relative;
+}
+
+header .navigation .navigation-pages a {
+	position: relative;
+	color: #000;
+	font-size: 1em;
+	font-weight: 500;
+	text-decoration: none;
+	margin-left: 30px;
+	transition: 0.3s ease;
+}
+
+header .navigation .navigation-pages a:before {
+	content: '';
+	position: absolute;
+	background: #000;
+	width: 0;
+	height: 3px;
+	bottom: 0;
+	left: 0;
+	transition: 0.3s ease;
+}
+
+header .navigation .navigation-pages a:hover:before {
+	width: 100%;
+}
+
+footer {
+	background-color: #000000af;
+	color: white;
+	padding: 20px;
+	text-align: center;
+	bottom: 0;
+	width: 100%;
+}
+
+footer p {
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+footer a {
+	color: #fff;
+	text-decoration: none;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+
+/* Style for the social media icons */
+.social-icons {
+	display: flex;
+	justify-content: center;
+}
+
+
+.social-icons a {
+	text-decoration: none;
+	padding: 10px;
+	background-color: white;
+	margin: 10px;
+	border-radius: 50px;
+
+}
+
+.social-icons a i {
+	font-size: 2em;
+	color: black;
+	opacity: 0.7;
+	/* 70% opacity */
+
+}
+
+.social-icons a:hover {
+	background-color: black;
+	transition: 0.5s;
+}
+
+.social-icons a:hover i {
+	color: white;
+	transition: 0.5;
+}
+
+.sub-button {
+	background-color: #000;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	font-size: 14px;
+	padding: 10px 20px;
+}
+
+
+button:hover {
+	background-color: #53f5cfde;
+}
+
+
+/* Styling for the image galleries */
+.img-gallery {
+	width: 80%;
+	/* Set the width of the gallery */
+	margin: 100px auto 50px;
+	/* Set the margins for spacing */
+	display: grid;
+	/* Use CSS grid for layout */
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	/* Automatic columns with minimum and maximum width */
+	grid-gap: 30px;
+	/* Set the gap between images */
+}
+
+/* Styling for individual gallery images */
+.img-gallery img {
+	width: 100%;
+	/* Make images cover their container */
+	cursor: pointer;
+	/* Show a pointer cursor on hover */
+	transition: 0.4s;
+	/* Add a smooth transition effect */
+}
+
+/* Hover effect for images */
+.img-gallery img:hover {
+	transform: scale(0.8) rotate(-15deg);
+	/* Scale down and rotate slightly on hover */
+	border-radius: 20px;
+	/* Add a border-radius for rounded corners */
+	box-shadow: 0 32px 75px rgba(68, 77, 136, 0.2);
+	/* Add a subtle box shadow */
+}
+
+/* Styling for the full image overlay */
+.full-img {
+	width: 100%;
+	/* Cover the entire width */
+	height: 100vh;
+	/* Cover the entire viewport height */
+	background: rgba(0, 0, 0, 0.9);
+	/* Semi-transparent black background */
+	position: fixed;
+	/* Fixed position on the screen */
+	top: 0;
+	/* Position from the top */
+	left: 0;
+	/* Position from the left */
+	display: none;
+	/* Initially hidden */
+	align-items: center;
+	/* Center content vertically */
+	justify-content: center;
+	/* Center content horizontally */
+}
+
+/* Styling for the full image within the overlay */
+.full-img img {
+	width: 90%;
+	/* Size the full image */
+	max-width: 800px;
+	/* Set a maximum width for larger screens */
+}
+
+/* Styling for the close button on the full image overlay */
+.full-img span {
+	position: absolute;
+	/* Absolutely position the close button */
+	top: 5%;
+	/* Position from the top */
+	right: 5%;
+	/* Position from the right */
+	font-size: 30px;
+	/* Set the font size */
+	color: #fff;
+	/* Set the color to white */
+	cursor: pointer;
+	/* Show a pointer cursor on hover */
+}
+
+h2 {
+	text-align: center;
+}
