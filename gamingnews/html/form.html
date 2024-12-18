@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <head>
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Vortex Gaming</title>
+         <!-- Favicon -->
+         <link rel="shortcut icon" type="icon" href="../images/logo1.png">
+         <!-- Stylesheets -->
+         <link rel="stylesheet" href="../sheets/form.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   </head>
+   <script></script>
+   </head>
+   <body>
+      <header>
+         <!-- Brand logo and navigation menu -->
+         <a href="#" class="brand">
+         <img src="../images/logo1.png" alt="Vortex Gaming Logo">
+         Vortex Gaming
+         </a>
+         <div class="menu-btn"></div>
+         <div class="navigation">
+            <!-- Navigation links -->
+            <div class="navigation-pages">
+               <a href="../index.html">Home</a>
+               <a href="gallery.html">Our Gallery</a>
+               <a href="offerings.html">Our Offerings</a>
+               <a href="form.html">Form</a>
+               <a href="Review Hub.html">Review Hub</a>
+               <a href="about.html">About Us</a>
+            </div>
+         </div>
+      </header>
+      <br><br><br><br><br><br><br><br><br>
+      <!-- Container for the contact form -->
+      <div class="contact-form">
+         <!-- Heading for the contact form -->
+         <h3>Contact Us</h3>
+         <!-- Contact form with fieldset -->
+         <form id="contact-form">
+            <fieldset>
+               <!-- Legend for the contact form section -->
+               <legend>Your Contact Information</legend>
+               <!-- Label and input for the name field -->
+               <label for="contact-name" title="Enter your first and last name">Name:</label>
+               <input type="text" id="contact-form-name" name="name" title="Enter your first and last name" required>
+               <!-- Label and input for the phone field -->
+               <label for="contact-phone" title="Please provide a 10-digit phone number">Phone:</label>
+               <input type="tel" id="contact-form-phone" name="phone" maxlength="11" title="Please provide an 11-digit phone number" required>
+               <!-- Label and input for the email field -->
+               <label for="contact-email" title="Please provide a valid email address">Email:</label>
+               <input type="email" id="contact-form-email" name="email" title="Please provide a valid email address" required><br>
+               <!-- Label and radio buttons for gender selection -->
+               <label for="contact-gender">Gender:</label>
+               <input type="radio" id="contact-gender-male" name="gender" value="male">
+               <label for="contact-gender-male">Male</label>
+               <input type="radio" id="contact-gender-female" name="gender" value="female">
+               <label for="contact-gender-female">Female</label><br>
+               <!-- Label and dropdown menu for gaming platform selection -->
+               <label for="contact-gaming-platform">Gaming Platform:</label>
+               <select id="contact-gaming-platform" name="gaming-platform">
+                  <option value="pc">PC</option>
+                  <option value="console">Console</option>
+                  <option value="mobile">Mobile</option>
+                  <option value="other">Other</option>
+               </select>
+               <!-- Label and textarea for message input -->
+               <label for="contact-message">Message:</label>
+               <textarea id="contact-form-message" name="message" rows="6" cols="50" required></textarea>
+               <br><br>
+               <!-- Label, checkbox, and link for agreeing to terms -->
+               <label for="terms-checkbox" title="Important! Read TOS before proceeding">I have read and agree to the <a href="TOS.html" target="_blank">Terms of Service</a></label>
+               <input type="checkbox" id="terms-checkbox" required>
+               <!-- Label and checkbox for subscribing to newsletter -->
+               <label for="subscribe-newsletter" title="Receive news, updates, and special offers via email">Subscribe to Newsletter:</label>
+               <input type="checkbox" id="signup-form-subscribe" name="subscribe-newsletter">
+            </fieldset>
+            <!-- Submit and clear buttons -->
+            <button type="button" onclick="submitForm('contact-form')">Submit</button>
+            <input type="reset" value="Clear" onclick="clearFields('contact-form')">
+         </form>
+      </div>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <footer>
+         <div class="useful-links">
+            <a href="../index.html">Home</a> |
+            <a href="gallery.html">Our Gallery</a> |
+            <a href="offerings.html">Our Offerings</a> |
+            <a href="form.html">Form</a> |
+            <a href="Review Hub.html">Review Hub</a> |
+            <a href="about.html">About Us</a>
+         </div>
+         <div class="social-icons">
+            <a href="https://www.instagram.com/vortexofgaming/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/vortexofgaming" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/vortexofgaming" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com/vortexofgaming" target="_blank"><i class="fab fa-youtube"></i></a>
+         </div>
+         <div class="subscribe-newsletter">
+            <h3>Subscribe to Our Newsletter</h3>
+            <p>Stay updated with the latest news and offers.</p>
+            <form>
+               <input type="email" name="email" placeholder="Enter your email" required>
+               <button class="sub-button"type="submit">Subscribe</button>
+            </form>
+         </div>
+         <p>Vortex Gaming &copy; 2023. All rights reserved. Design by Vaughn, Michael, Tanya, Jermaine. | <a href="../html/privacy.html">Privacy Policy</a> | <a href="../html/TOS.html">Terms of Use</a></p>
+         <p>Address: P.O. Box 876 Kingston 10, Jamaica | Phone: 876-999-5555 | Email: vortex_gaming@gmail.com</p>
+      </footer>
+      <script src="../js/form.js"></script>
+   </body>
+</html>
