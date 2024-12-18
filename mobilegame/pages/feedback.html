@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/feedback.css">
+    <title>Feedback Form</title>
+    <style>
+        .thank-you-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: rgba(147, 51, 234, 0.95);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .popup-content h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .popup-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .popup-btn {
+            padding: 0.875rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .popup-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+        }
+
+        .popup-btn.end-game {
+            background: rgba(255, 71, 71, 0.2);
+        }
+
+        .popup-btn.end-game:hover {
+            background: rgba(255, 71, 71, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <a href="menu.html" class="back-button">
+        <img src="../images/backbutton.png" alt="Back to Menu">
+    </a>
+    <div class="feedback-container">
+        <h1>Feedback</h1>
+        <form id="feedbackForm">
+            <div class="radio-group">
+                <div>
+                    <input type="radio" id="anonymous" name="userType" value="anonymous" required>
+                    <label for="anonymous">Anonymous</label>
+                </div>
+                <div>
+                    <input type="radio" id="namedUser" name="userType" value="namedUser">
+                    <label for="namedUser">Named User</label>
+                </div>
+            </div>
+
+            <!-- Named user fields -->
+            <div id="namedUserFields" style="display: none;">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">eMail address:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+            </div>
+
+            <!-- Common fields for all users -->
+            <div class="form-group">
+                <label for="robotType">Which robot player type would you most likely play against?</label>
+                <select id="robotType" name="robotType" required>
+                    <option value="">--Choose from list--</option>
+                    <option value="highRoller">High Roller</option>
+                    <option value="conservative">Conservative</option>
+                    <option value="recreational">Recreational</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Would you like to be a tester for the next game release?</label>
+                <div class="tester-group">
+                    <div>
+                        <input type="radio" id="no" name="tester" value="no" required>
+                        <label for="no">No</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="yes" name="tester" value="yes">
+                        <label for="yes">Yes</label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Thank You Popup -->
+    <div class="thank-you-popup" id="thankYouPopup">
+        <div class="popup-content">
+            <h2>Thank you for Your Feedback!</h2>
+            <div class="popup-buttons">
+                <button class="popup-btn" onclick="window.location.href='menu.html'">Return to Main Menu</button>
+                <button class="popup-btn end-game" onclick="window.location.href='../index.html'">End Game</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedbackForm');
+            const namedUserFields = document.getElementById('namedUserFields');
+            const anonymousInput = document.getElementById('anonymous');
+            const namedUserInput = document.getElementById('namedUser');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+
+            function handleUserTypeChange(e) {
+                if (e.target.value === 'anonymous') {
+                    namedUserFields.style.display = 'none';
+                    nameInput.required = false;
+                    emailInput.required = false;
+                } else {
+                    namedUserFields.style.display = 'block';
+                    nameInput.required = true;
+                    emailInput.required = true;
+                }
+            }
+
+            // Add event listeners to radio buttons
+            anonymousInput.addEventListener('change', handleUserTypeChange);
+            namedUserInput.addEventListener('change', handleUserTypeChange);
+
+            // Handle form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Only validate name and email if named user is selected
+                if (namedUserInput.checked) {
+                    if (!nameInput.value || !emailInput.value) {
+                        return; // Don't submit if required fields are empty
+                    }
+                }
+
+                document.getElementById('thankYouPopup').style.display = 'flex';
+            });
+        });
+
+        // Background music handling
+        const backgroundMusic = new Audio('../sounds/background.mp3');
+        backgroundMusic.volume = 0.4;
+        backgroundMusic.loop = true;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            backgroundMusic.play()
+                .catch(err => console.log('Error playing background music:', err));
+        });
+
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                backgroundMusic.pause();
+            } else {
+                backgroundMusic.play()
+                    .catch(err => console.log('Error resuming background music:', err));
+            }
+        });
+
+        window.addEventListener('beforeunload', function() {
+            backgroundMusic.pause();
+            backgroundMusic.currentTime = 0;
+        });
+    </script>
+</body>
+</html>

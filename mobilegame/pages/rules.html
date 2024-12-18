@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            padding: 20px;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        fieldset {
+            border: 2px solid #fff;
+            padding: 25px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        h2 {
+            color: #fff;
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 15px 0;
+        }
+        b {
+            color: #ff6347;
+            font-size: 20px;
+            display: block;
+            margin: 15px 0 10px 0;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 24px;
+            left: 24px;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+
+        .back-button img {
+            width: 100%;
+            height: 100%;  
+        }
+
+        /* Phone Frame Styles */
+.phone-frame {
+  position: relative;
+  width: 380px;
+  height: 780px;
+  background: #1a1a1a;
+  border-radius: 50px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  overflow: hidden;
+}
+
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 30px;
+  background: #1a1a1a;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 2;
+}
+
+.camera {
+  position: absolute;
+  top: 10px;
+  right: 120px;
+  width: 12px;
+  height: 12px;
+  background: #2c2c2c;
+  border-radius: 50%;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.speaker {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 6px;
+  background: #2c2c2c;
+  border-radius: 3px;
+  z-index: 3;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+  background-size: 400% 400%;
+  border-radius: 40px;
+  overflow-y: auto;
+  position: relative;
+  animation: Gradient 15s ease infinite;
+  padding: 20px 15px;
+}
+
+/* Phone Hardware Buttons */
+.volume-up {
+  position: absolute;
+  left: -3px;
+  top: 100px;
+  width: 3px;
+  height: 40px;
+  background: #2c2c2c;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.volume-down {
+  position: absolute;
+  left: -3px;
+  top: 150px;
+  width: 3px;
+  height: 40px;
+  background: #2c2c2c;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.power-button {
+  position: absolute;
+  right: -3px;
+  top: 120px;
+  width: 3px;
+  height: 50px;
+  background: #2c2c2c;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.home-button {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: #2c2c2c;
+  border-radius: 2px;
+  z-index: 2;
+}
+    </style>
+</head>
+<body>
+    <a href="menu.html" class="back-button">
+        <img src="../images/backbutton.png" alt="Back to Menu">
+    </a>
+    <center>
+    <div class="container">
+        <div class="phone-frame">
+            <div class="camera"></div>
+            <div class="speaker"></div>
+            <div class="volume-up"></div>
+            <div class="volume-down"></div>
+            <div class="power-button"></div>
+            <div class="screen">
+        <center>
+            <h2>Rules</h2>
+            <fieldset>
+                <p>
+                    Rock Paper Scissors is a classic game of chance where players simultaneously form one of three shapes with their hand:<br> <br>
+                    Rock: A closed fist<br>
+                    Paper: A flat hand with fingers and thumb extended and the palm facing down <br>
+                    Scissors: A fist with the index and middle fingers fully extended toward the opposing player<br>
+                    <br>
+                    <b>Strengths and Weaknesses</b>
+                    Rock beats scissors, scissors beats paper, and paper beats rock. If both players throw the same hand signal, it is a tie.<br>
+                    In our digital version, you'll select your choice by clicking on the corresponding icon, while the computer will make its selection randomly.<br>
+                    <br>
+                    <b>Player Mode</b>
+                    In Two-Player Mode, you'll face off against one computer opponent. Both players start with random points between 20-100 (in multiples of 10). When you win a round, your opponent loses 10 points; when you lose, you lose 10 points. The game continues until either player's points reach zero, with the last player having points above zero being declared the winner. Watch out for special alerts when you achieve three consecutive wins or when your points drop to 10!
+                    <br> <br>
+                    In Three-Player Mode, the dynamics become more complex as you compete against two computer opponents simultaneously. When you win, both computer players lose 10 points each. If either computer wins, both you and the non-winning computer lose 10 points. The same winning conditions apply - be the last player with points above zero to win the game. This mode requires more strategic thinking as you need to manage your points while facing two opponents at once.
+                </p>
+            </fieldset>
+        </center>
+    </div>
+    </div>
+    <div class="home-button"></div>
+    </div>
+</center>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors Game</title>
+    <link rel="stylesheet" href="../styles/game.css">
+    <!-- Preload audio -->
+    <link rel="preload" href="../sounds/background.mp3" as="audio">
+    <link rel="preload" href="../sounds/winner.mp3" as="audio">
+    <link rel="preload" href="../sounds/endgame.mp3" as="audio">
+    <link rel="preload" href="../sounds/gameover.mp3" as="audio">
+    <link rel="preload" href="../sounds/highest.mp3" as="audio">
+    <link rel="preload" href="../sounds/loss.mp3" as="audio">
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="camera"></div>
+        <div class="speaker"></div>
+        <div class="volume-up"></div>
+        <div class="volume-down"></div>
+        <div class="power-button"></div>
+        <div class="screen">
+            <!-- Game Content -->
+            <a href="menu.html" class="back-button">
+                <img src="../images/backbutton.png" alt="Back to Menu">
+            </a>
+
+            <div class="mode-selector">
+                <button id="twoPlayerMode" class="mode-btn active">2 Players</button>
+                <button id="threePlayerMode" class="mode-btn">3 Players</button>
+            </div>
+
+            <div class="scoreboard">
+                <div class="scoreboard-header">
+                    <h2 id="game-status" class="scoreboard-title">
+                        <img src="../images/trophy.png" alt="Trophy" class="trophy-icon">
+                        Game Status
+                    </h2>
+                </div>
+
+                <div class="scoreboard-content">
+                    <div id="winner" class="winner-announcement">Let's Play Janken!</div>
+                    <div class="total-rounds">
+                        <span class="rounds-label">Round:</span>
+                        <span id="totalRoundsPlayed">0</span>
+                    </div><br>
+                    <div class="score-display">
+                        <div class="score-item">
+                            <div class="score-label">Player</div>
+                            <div class="score-value player-score">0</div>
+                            <div id="userPoints" class="points">Points: 0</div>
+                        </div>
+
+                        <div class="score-vs">vs</div>
+
+                        <div class="score-item">
+                            <div class="score-label">Robot</div>
+                            <div class="score-value computer1-score">0</div>
+                            <div id="computer1Points" class="points">Points: 0</div>
+                        </div>
+
+                        <div id="computer2Container" class="score-item" style="display: none;">
+                            <div class="score-label">CPU</div>
+                            <div class="score-value computer2-score">0</div>
+                            <div id="computer2Points" class="points">Points: 0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-container">
+                <div class="result-container">
+                    <div class="player-container">
+                        <h2>You</h2>
+                        <img id="userChoice" src="../images/rockstatic.gif" alt="Player Choice" class="choice-image">
+                    </div>
+
+                    <div class="player-container">
+                        <h2>Robot</h2>
+                        <img id="computer1Choice" src="../images/rockstatic.gif" alt="Robot Choice" class="choice-image">
+                    </div>
+
+                    <div id="computer2Container" class="player-container" style="display: none;">
+                        <h2>CPU</h2>
+                        <img id="computer2Choice" src="../images/rockstatic.gif" alt="CPU Choice" class="choice-image">
+                    </div>
+                </div>
+
+                <div class="choices">
+                    <img src="../images/rockstatic.gif" alt="Rock" class="choice-image" onclick="playGame('rock')">
+                    <img src="../images/paperstatic.gif" alt="Paper" class="choice-image" onclick="playGame('paper')">
+                    <img src="../images/scissorstatic.gif" alt="Scissors" class="choice-image" onclick="playGame('scissors')">
+                </div>
+
+                <button id="endGameButton" class="end-game-btn">End Game</button>
+            </div>
+
+            <!-- Stats Screen -->
+            <div id="statsScreen" class="stats-screen">
+                <div class="stats-container">
+                    <div class="timer" id="countdown">20</div>
+                    
+                    <h1 class="stats-title">Game Statistics</h1>
+                    
+                    <div class="stats-content">
+                        <div class="stat-item winner-stat">
+                            <span class="stat-label">Winner</span>
+                            <span class="stat-value" id="gameWinner">-</span>
+                        </div>
+        
+                        <div class="stat-item">
+                            <span class="stat-label">Game Duration</span>
+                            <span class="stat-value" id="gameDuration">0:00</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <span class="stat-label">Player Points</span>
+                            <span class="stat-value" id="finalPlayerPoints">0</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <span class="stat-label">Robot Points</span>
+                            <span class="stat-value" id="finalRobotPoints">0</span>
+                        </div>
+                        
+                        <div id="cpuPointsContainer" class="stat-item" style="display: none;">
+                            <span class="stat-label">CPU Points</span>
+                            <span class="stat-value" id="finalCPUPoints">0</span>
+                        </div>
+        
+                        <div class="stat-item">
+                            <span class="stat-label">Rounds Won (Player)</span>
+                            <span class="stat-value" id="totalPlayerWins">0</span>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <span class="stat-label">Rounds Won (Robot)</span>
+                            <span class="stat-value" id="totalRobotWins">0</span>
+                        </div>
+        
+                        <div id="cpuWinsContainer" class="stat-item" style="display: none;">
+                            <span class="stat-label">Rounds Won (CPU)</span>
+                            <span class="stat-value" id="totalCPUWins">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="home-button"></div>
+    </div>
+
+    <script src="../js/game.js"></script>
+</body>
+</html>
