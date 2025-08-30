@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Early theme bootstrap -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        var html = document.documentElement;
+        html.setAttribute('data-theme', theme);
+        html.style.colorScheme = theme;
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Privacy Policy - Joshua Haye & Co</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    /* ========== Base & Variables (mirrors terms.html) ========== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    :root{
+      --primary-color:#4CAF50;
+      --primary-dark:#45a049;
+      --secondary-color:#1a2a6c;
+      --accent-color:#2196F3;
+      --transition-speed:.3s;
+      --border-radius:12px;
+      --box-shadow:0 4px 20px rgba(0,0,0,.08);
+      --box-shadow-hover:0 8px 30px rgba(0,0,0,.12);
+      --nav-height:90px; /* used for scroll offsets */
+    }
+
+    [data-theme="dark"]{
+      --bg-color:#0f0f0f;
+      --surface-color:#1a1a1a;
+      --card-bg:#222;
+      --text-color:#fff;
+      --text-secondary:#b3b3b3;
+      --text-muted:#888;
+      --border-color:#333;
+      --nav-bg:linear-gradient(135deg,#1a2a6c,#0f0f0f);
+      --section-bg:#151515;
+      --highlight-bg:#2a2a2a;
+    }
+    [data-theme="light"]{
+      --bg-color:#fff;
+      --surface-color:#fafafa;
+      --card-bg:#fff;
+      --text-color:#2c2c2c;
+      --text-secondary:#555;
+      --text-muted:#777;
+      --border-color:#e5e5e5;
+      --nav-bg:linear-gradient(135deg,#1a2a6c,#2a4858);
+      --section-bg:#f8f9fa;
+      --highlight-bg:#f0f7ff;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--bg-color);
+      color:var(--text-color);
+      line-height:1.7;
+      transition:all var(--transition-speed) ease;
+      overflow-x:hidden;
+    }
+
+    /* ========== Nav ========== */
+    nav{
+      background:var(--nav-bg);
+      padding:1rem 5%;
+      position:fixed; width:100%; z-index:1000;
+      backdrop-filter:blur(10px); transition:all .3s ease;
+    }
+    .nav-content{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;}
+    .logo{display:flex;gap:15px;align-items:center;color:#fff;}
+    .logo img{height:50px;width:auto;filter:brightness(1.1);}
+    .logo p{font-size:1rem;font-weight:500;line-height:1.3;margin:0;}
+    .nav-actions{display:flex;align-items:center;gap:2rem;}
+    .nav-links{list-style:none;display:flex;gap:2rem;}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:500;position:relative;padding:.5rem 0;transition:.3s;}
+    .nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--primary-color);transition:width .3s;}
+    .nav-links a:hover::after{width:100%;}
+    .theme-toggle{background:rgba(255,255,255,.1);border:none;border-radius:50%;width:45px;height:45px;color:#fff;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:.3s;}
+    .theme-toggle:hover{background:rgba(255,255,255,.2);transform:rotate(15deg) scale(1.05);}
+
+    /* ========== Hero ========== */
+    .legal-hero{background:var(--nav-bg);position:relative;padding:140px 5% 80px;text-align:center;overflow:hidden;}
+    .legal-hero::before{content:'';position:absolute;inset:0;background:
+      radial-gradient(circle at 20% 50%,rgba(76,175,80,.1) 0%,transparent 50%),
+      radial-gradient(circle at 80% 80%,rgba(33,150,243,.1) 0%,transparent 50%);}
+    .legal-hero-content{max-width:800px;margin:0 auto;position:relative;z-index:2;}
+    .legal-hero h1{font-size:3.5rem;font-weight:700;color:#fff;margin-bottom:1.5rem;letter-spacing:-.02em;line-height:1.1;}
+    .legal-hero p{font-size:1.3rem;color:rgba(255,255,255,.9);font-weight:300;max-width:600px;margin:0 auto;}
+
+    /* ========== TOC ========== */
+    .toc-section{background:var(--section-bg);padding:60px 5%;}
+    .toc-container{max-width:900px;margin:0 auto;background:var(--card-bg);padding:2.5rem;border-radius:var(--border-radius);box-shadow:var(--box-shadow);}
+    .toc-container h3{color:var(--text-color);font-size:1.3rem;margin-bottom:1.5rem;font-weight:600;}
+    .toc-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;list-style:none;padding:0;}
+    .toc-item{padding:1rem 1.5rem;background:var(--surface-color);border-radius:var(--border-radius);transition:.3s;border-left:3px solid transparent;}
+    .toc-item:hover{border-left-color:var(--primary-color);transform:translateX(5px);box-shadow:0 4px 15px rgba(76,175,80,.1);}
+    .toc-item a{color:var(--text-secondary);text-decoration:none;font-weight:500;transition:color .3s;}
+    .toc-item:hover a{color:var(--primary-color);}
+
+    /* ========== Content ========== */
+    .legal-content{padding:100px 5%;background:var(--bg-color);}
+    .legal-container{max-width:900px;margin:0 auto;background:var(--card-bg);padding:4rem;border-radius:20px;box-shadow:var(--box-shadow);position:relative;}
+    .legal-container::before{content:'';position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--primary-color),var(--accent-color));border-radius:20px 20px 0 0;}
+    .legal-container h2{
+      color:var(--secondary-color);font-size:1.5rem;font-weight:600;margin:3rem 0 1.5rem;padding-bottom:.8rem;border-bottom:2px solid var(--border-color);position:relative;
+      scroll-margin-top: calc(var(--nav-height) + 20px); /* native anchor offset */
+    }
+    .legal-container h2:first-child{margin-top:0;}
+    .legal-container h2::before{content:'';position:absolute;bottom:-2px;left:0;width:60px;height:2px;background:var(--primary-color);}
+    .legal-container p{color:var(--text-secondary);font-size:1rem;line-height:1.8;margin-bottom:1.5rem;text-align:justify;}
+    .legal-container ul{margin:1.5rem 0;padding-left:2rem;}
+    .legal-container li{color:var(--text-secondary);margin-bottom:.8rem;line-height:1.7;}
+    .contact-highlight{background:var(--highlight-bg);padding:2rem;border-radius:var(--border-radius);border-left:4px solid var(--primary-color);margin:2rem 0;}
+    .contact-highlight strong{color:var(--text-color);font-weight:600;}
+
+    /* ========== Footer ========== */
+    footer{background:var(--secondary-color);color:#fff;padding:4rem 5% 2rem;}
+    .footer-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:3rem;}
+    .footer-section h3{color:var(--primary-color);margin-bottom:1.5rem;font-weight:600;}
+    .footer-section a{color:rgba(255,255,255,.8);text-decoration:none;transition:.3s;}
+    .footer-section a:hover{color:var(--primary-color);}
+    .footer-section ul{list-style:none;}
+    .footer-section li{margin-bottom:.8rem;}
+    .footer-bottom{text-align:center;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);}
+
+    /* ========== Theme wave ========== */
+    .theme-wave-container{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden;opacity:0;visibility:hidden;transition:opacity .1s;}
+    .theme-wave-container.active{opacity:1;visibility:visible;}
+    .theme-wave{position:absolute;border-radius:50%;transform:scale(0);pointer-events:none;animation:ripple 1s cubic-bezier(.19,1,.22,1) forwards;}
+    @keyframes ripple{0%{transform:scale(0);opacity:1}40%{opacity:.8}100%{transform:scale(4);opacity:0}}
+    [data-theme="dark"] .theme-wave{background:rgba(15,15,15,.9);}
+    [data-theme="light"] .theme-wave{background:rgba(255,255,255,.9);}
+
+    /* ========== Responsive ========== */
+    @media (max-width:992px){.legal-container{padding:2.5rem}.legal-hero h1{font-size:2.8rem}.toc-list{grid-template-columns:1fr}}
+    @media (max-width:768px){
+      nav{padding:1rem 3%}
+      .nav-links{gap:1.5rem}
+      .legal-hero{padding:120px 3% 60px}
+      .legal-hero h1{font-size:2.2rem}
+      .legal-hero p{font-size:1.1rem}
+      .legal-content{padding:60px 3%}
+      .legal-container{padding:2rem}
+      .toc-section{padding:40px 3%}
+    }
+    @media (max-width:480px){
+      .logo p{font-size:.9rem}
+      .nav-links{gap:1rem}
+      .legal-hero h1{font-size:1.8rem}
+      .legal-container{padding:1.5rem}
+      .legal-container h2{font-size:1.3rem}
+    }
+
+    /* ========== Scroll animation ========== */
+    @media (prefers-reduced-motion:no-preference){
+      .legal-container{animation:fadeInUp .8s ease-out}
+      .toc-container{animation:fadeInUp .8s ease-out .2s both}
+    }
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+
+<body>
+  <div class="theme-wave-container" id="theme-wave-container"></div>
+
+  <nav>
+    <div class="nav-content">
+      <div class="logo">
+        <img src="../images/logo.png" alt="Joshua Haye & Co Logo" />
+        <p>Joshua Haye & Co<br />Chartered Accountants</p>
+      </div>
+      <div class="nav-actions">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <section class="legal-hero">
+      <div class="legal-hero-content">
+        <h1>Privacy Policy</h1>
+        <p>Clear, transparent information on how we handle your data</p>
+      </div>
+    </section>
+
+    <!-- Table of contents -->
+    <section class="toc-section">
+      <div class="toc-container">
+        <h3>Quick Navigation</h3>
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#intro">1. Introduction</a></li>
+          <li class="toc-item"><a href="#info">2. Information We Collect</a></li>
+          <li class="toc-item"><a href="#use">3. How We Use Information</a></li>
+          <li class="toc-item"><a href="#legal-bases">4. Legal Bases for Processing</a></li>
+          <li class="toc-item"><a href="#sharing">5. Information Sharing</a></li>
+          <li class="toc-item"><a href="#security">6. Data Security</a></li>
+          <li class="toc-item"><a href="#retention">7. Retention</a></li>
+          <li class="toc-item"><a href="#rights">8. Your Rights</a></li>
+          <li class="toc-item"><a href="#cookies">9. Cookies</a></li>
+          <li class="toc-item"><a href="#transfers">10. International Transfers</a></li>
+          <li class="toc-item"><a href="#contact">11. Contact</a></li>
+          <li class="toc-item"><a href="#changes">12. Changes to this Policy</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="legal-content">
+      <div class="legal-container">
+        <h2 id="intro">1. Introduction</h2>
+        <p>Joshua Haye & Co (“we”, “us”, “our”) respects your privacy and is committed to protecting the personal information you share with us. This policy explains what we collect, why we collect it, and how we protect it.</p>
+
+        <h2 id="info">2. Information We Collect</h2>
+        <ul>
+          <li>Contact details (name, email, phone) and business identifiers required for services.</li>
+          <li>Financial and engagement information you provide to us or authorize us to obtain.</li>
+          <li>Communications with us, including emails and form submissions.</li>
+        </ul>
+
+        <h2 id="use">3. How We Use Information</h2>
+        <ul>
+          <li>To deliver accounting, audit, tax, and advisory services.</li>
+          <li>To communicate with you and manage engagements.</li>
+          <li>To comply with legal and regulatory obligations.</li>
+          <li>To improve our services and website.</li>
+        </ul>
+
+        <h2 id="legal-bases">4. Legal Bases for Processing</h2>
+        <p>We process personal data on the basis of contract (service delivery), legal obligation (statutory compliance), legitimate interests (service improvement and client management), and consent where required.</p>
+
+        <h2 id="sharing">5. Information Sharing</h2>
+        <p>We do not sell your personal data. We may share information with service providers under contract (e.g., IT, secure communications), professional advisers, or regulators where required by law.</p>
+
+        <h2 id="security">6. Data Security</h2>
+        <p>We implement appropriate technical and organizational measures to secure your data against unauthorized access, disclosure, alteration, or destruction.</p>
+
+        <h2 id="retention">7. Retention</h2>
+        <p>We retain personal data as necessary to fulfill the purposes outlined in this policy and to meet legal, regulatory, and professional requirements.</p>
+
+        <h2 id="rights">8. Your Rights</h2>
+        <ul>
+          <li>Access, correction, and deletion (subject to legal retention requirements).</li>
+          <li>Restriction or objection to certain processing.</li>
+          <li>Withdrawal of consent where processing is based on consent.</li>
+        </ul>
+
+        <h2 id="cookies">9. Cookies</h2>
+        <p>Our website may use cookies to improve your experience. You can manage or disable cookies in your browser settings.</p>
+
+        <h2 id="transfers">10. International Transfers</h2>
+        <p>If we transfer data internationally, we will use appropriate safeguards consistent with applicable laws.</p>
+
+        <h2 id="contact">11. Contact</h2>
+        <div class="contact-highlight">
+          <p>Questions or requests about this policy:</p>
+          <p><strong>Email:</strong> joshua_haye@yahoo.com</p>
+          <p><strong>Phone:</strong> (876) 630-6213 or (876) 346-2377</p>
+          <p><strong>Address:</strong> 21 Rochester Avenue, Kingston 8, Jamaica</p>
+        </div>
+
+        <h2 id="changes">12. Changes to this Policy</h2>
+        <p>We may update this Privacy Policy periodically. Changes will be posted on this page with an updated revision date.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Contact Us</h3>
+        <div class="contact-info">
+          <p><strong>Email:</strong> joshua_haye@yahoo.com</p>
+          <p><strong>Phone:</strong> (876) 630-6213 or (876) 346-2377</p>
+          <p><strong>Address:</strong> 21 Rochester Avenue, Kingston 8</p>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Joshua Haye & Co. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme toggle + ripple
+    document.addEventListener('DOMContentLoaded', function () {
+      const html = document.documentElement;
+      const toggle = document.getElementById('theme-toggle');
+      const icon = toggle.querySelector('i');
+      const waveC = document.getElementById('theme-wave-container');
+
+      function updateIcon(t){ if(t==='dark'){icon.classList.replace('fa-moon','fa-sun')} else {icon.classList.replace('fa-sun','fa-moon')} }
+      function wave(){
+        waveC.innerHTML=''; const el=document.createElement('div'); el.className='theme-wave';
+        const r=toggle.getBoundingClientRect(); el.style.left=(r.left+r.width/2)+'px'; el.style.top=(r.top+r.height/2)+'px';
+        waveC.appendChild(el); waveC.classList.add('active'); setTimeout(()=>waveC.classList.remove('active'),1000);
+      }
+      updateIcon(html.getAttribute('data-theme'));
+      toggle.addEventListener('click',function(){
+        wave(); const cur=html.getAttribute('data-theme')||'light'; const nxt=cur==='light'?'dark':'light';
+        setTimeout(()=>{ html.setAttribute('data-theme',nxt); html.style.colorScheme=nxt; localStorage.setItem('theme',nxt); updateIcon(nxt); },150);
+      });
+
+      // ===== Robust smooth-scroll for in-page links (TOC) =====
+      const nav = document.querySelector('nav');
+      const navH = nav ? nav.offsetHeight : 90;
+      document.querySelectorAll('.toc-section a[href^="#"]').forEach(a=>{
+        a.addEventListener('click',function(e){
+          e.preventDefault();
+          const id = this.getAttribute('href').slice(1);
+          const target = document.getElementById(id);
+          if(!target) return;
+          const y = target.getBoundingClientRect().top + window.pageYOffset - (navH + 20);
+          window.scrollTo({ top:y, behavior:'smooth' });
+          // also set hash without native jump
+          history.replaceState(null, '', '#' + id);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
