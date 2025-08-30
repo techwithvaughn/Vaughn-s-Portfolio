@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>V-Technology Solutions - Digital Innovation</title>
+  <meta name="description" content="V-Technology Solutions crafts exceptional digital experiences—apps, websites, UI/UX, and hosting—powered by modern tech and bold design."/>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%2300f5ff'/><stop offset='100%25' style='stop-color:%23ff00f5'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='%23000'/><text x='50' y='65' font-family='Arial,sans-serif' font-size='50' font-weight='bold' text-anchor='middle' fill='url(%23g)'>V</text></svg>" type="image/svg+xml">
+  
+  <!-- Preload critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      contain: layout style paint;
+    }
+
+    /* ADDED: hide scrollbars but keep normal scroll */
+    html, body { height: 100%; }
+    body {
+      overflow-y: auto;               /* allow scroll */
+      -ms-overflow-style: none;       /* IE/Edge */
+      scrollbar-width: none;          /* Firefox */
+    }
+    body::-webkit-scrollbar { display: none; } /* WebKit */
+
+    /* ADDED: prevent anchor targets from being hidden under fixed header */
+    section { scroll-margin-top: 100px; }
+
+    /* Enhanced Neural Network Background - GPU optimized */
+    .bg-animation {
+      position: fixed; inset: 0;
+      z-index: -1; opacity: 0.3;
+      will-change: transform; 
+      transform: translateZ(0); /* Force GPU layer */
+      background: radial-gradient(ellipse at center, rgba(0,245,255,0.1) 0%, transparent 50%);
+      contain: strict;
+    }
+
+    .neural-network {
+      position: absolute; inset: 0;
+      transform: translateZ(0); /* GPU acceleration */
+      contain: layout style paint;
+    }
+
+    .node {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: #00f5ff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff;
+      animation: nodeFloat 8s ease-in-out infinite;
+      will-change: transform;
+      transform: translateZ(0); /* Force GPU layer */
+      contain: layout style paint;
+    }
+
+    .node::before {
+      content: '';
+      position: absolute;
+      width: 20px; height: 20px;
+      top: -8px; left: -8px;
+      border: 1px solid rgba(0, 245, 255, 0.2);
+      border-radius: 50%;
+      animation: nodePulse 4s ease-in-out infinite;
+      will-change: transform, opacity;
+    }
+
+    .connection {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 245, 255, 0.8) 20%, 
+        rgba(255, 0, 245, 0.8) 50%, 
+        rgba(0, 255, 136, 0.8) 80%, 
+        transparent 100%
+      );
+      transform-origin: 0 50%;
+      animation: connectionPulse 6s ease-in-out infinite;
+      will-change: opacity, transform;
+      transform: translateZ(0);
+    }
+
+    /* Optimized keyframes with transform3d */
+    @keyframes nodeFloat {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      25% { transform: translate3d(20px, -15px, 0); }
+      50% { transform: translate3d(-10px, 10px, 0); }
+      75% { transform: translate3d(-25px, -5px, 0); }
+    }
+
+    @keyframes nodePulse {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.5); opacity: 0.8; }
+    }
+
+    @keyframes connectionPulse {
+      0%, 100% { opacity: 0.2; transform: scaleX(1); }
+      50% { opacity: 0.8; transform: scaleX(1.1); }
+    }
+
+    /* Floating geometric shapes - optimized */
+    .geometric-shapes {
+      position: absolute; inset: 0;
+      transform: translateZ(0);
+      contain: layout style paint;
+    }
+
+    .geo-shape {
+      position: absolute;
+      animation: geometricFloat 15s linear infinite;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    .geo-triangle {
+      width: 0; height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 25px solid rgba(0, 245, 255, 0.4);
+      filter: drop-shadow(0 0 10px rgba(0, 245, 255, 0.6));
+    }
+
+    .geo-hexagon {
+      width: 30px; height: 26px;
+      background: rgba(255, 0, 245, 0.3);
+      clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+      filter: drop-shadow(0 0 15px rgba(255, 0, 245, 0.5));
+    }
+
+    .geo-diamond {
+      width: 20px; height: 20px;
+      background: rgba(0, 255, 136, 0.4);
+      transform: rotate(45deg) translateZ(0);
+      filter: drop-shadow(0 0 12px rgba(0, 255, 136, 0.6));
+    }
+
+    @keyframes geometricFloat {
+      0% { transform: translate3d(0, 0, 0) rotateZ(0deg); opacity: 0.3; }
+      25% { transform: translate3d(100px, -80px, 0) rotateZ(90deg); opacity: 0.7; }
+      50% { transform: translate3d(-50px, 60px, 0) rotateZ(180deg); opacity: 0.5; }
+      75% { transform: translate3d(-120px, -40px, 0) rotateZ(270deg); opacity: 0.8; }
+      100% { transform: translate3d(0, 0, 0) rotateZ(360deg); opacity: 0.3; }
+    }
+
+    /* Matrix rain effect - performance optimized */
+    .matrix-rain {
+      position: absolute; inset: 0;
+      overflow: hidden; opacity: 0.1;
+      contain: strict;
+    }
+
+    .matrix-column {
+      position: absolute;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: #00ff88;
+      animation: matrixFall linear infinite;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    @keyframes matrixFall {
+      0% { transform: translate3d(0, -100vh, 0); opacity: 1; }
+      100% { transform: translate3d(0, 100vh, 0); opacity: 0; }
+    }
+
+    /* Header - optimized with containment */
+    header {
+      position: fixed; top: 0; width: 100%;
+      padding: 20px 5%;
+      background: linear-gradient(135deg, rgba(0,0,0,.95) 0%, rgba(15,15,35,.95) 50%, rgba(0,0,0,.95) 100%);
+      backdrop-filter: blur(20px) saturate(180%);
+      z-index: 1000;
+      transition: all .4s cubic-bezier(.4,0,.2,1);
+      will-change: background, transform, box-shadow;
+      transform: translateZ(0); /* Force GPU layer */
+      contain: layout style paint;
+      box-shadow:
+        0 8px 32px rgba(0,0,0,.4),
+        0 2px 8px rgba(0,245,255,.1),
+        inset 0 1px 0 rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(0,245,255,.2);
+    }
+    
+    header.scrolled {
+      background: linear-gradient(135deg, rgba(0,0,0,.98) 0%, rgba(10,10,30,.98) 50%, rgba(0,0,0,.98) 100%);
+      transform: translateZ(0) scale(.98);
+      box-shadow:
+        0 12px 40px rgba(0,0,0,.6),
+        0 4px 12px rgba(0,245,255,.15),
+        inset 0 1px 0 rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,0,245,.3);
+    }
+
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    .logo { 
+      font-size: 1.8rem; font-weight: 700; display: flex; align-items: center; gap: 6px;
+      contain: layout style;
+    }
+
+    .logo .v-tech{
+      background: linear-gradient(45deg, #00f5ff, #ff00f5);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: vtechGlow 2s ease-in-out infinite;
+      will-change: opacity, filter; 
+      position: relative;
+      transform: translateZ(0);
+    }
+    
+    .logo .v-tech::before{
+      content:''; position:absolute; top:-25px; left:50%; transform:translateX(-50%);
+      width:60px; height:20px; border-radius:50% 50% 0 0;
+      background: linear-gradient(180deg, rgba(0,245,255,.3) 0%, rgba(0,245,255,.1) 50%, transparent 100%);
+      box-shadow: 0 -5px 15px rgba(0,245,255,.4), inset 0 -3px 8px rgba(0,245,255,.2);
+      animation: lampGlow 2s ease-in-out infinite;
+      will-change: opacity, box-shadow;
+    }
+    
+    .logo .v-tech::after{
+      content:''; position:absolute; top:-30px; left:50%; transform:translateX(-50%);
+      width:4px; height:15px; border-radius:2px;
+      background: linear-gradient(180deg, #333 0%, #555 100%);
+      box-shadow: inset 0 0 3px rgba(0,0,0,.5);
+    }
+    
+    .logo .v-tech .spinning-v {
+      display: inline-block;
+      background: linear-gradient(45deg, #00f5ff, #ff00f5);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: spinV 3s ease-in-out infinite;
+      transform-origin: center;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    .logo .solutions{
+      background: linear-gradient(45deg, #00f5ff, #ff00f5);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 15px rgba(0, 245, 255, .5));
+      animation: solutionsGlow 3s ease-in-out infinite alternate;
+      will-change: filter;
+    }
+
+    /* Optimized logo animations */
+    @keyframes lampGlow {
+      0%,45% { opacity:1; box-shadow:0 -5px 20px rgba(0,245,255,.6), inset 0 -3px 10px rgba(0,245,255,.3); }
+      50%,55% { opacity:.4; box-shadow:0 -5px 8px rgba(0,245,255,.2), inset 0 -3px 4px rgba(0,245,255,.1); }
+      60%,100%{ opacity:1; box-shadow:0 -5px 20px rgba(255,0,245,.6), inset 0 -3px 10px rgba(255,0,245,.3); }
+    }
+    
+    @keyframes spinV {
+      0%, 100% { transform: translateZ(0) rotateY(0deg); }
+      25% { transform: translateZ(0) rotateY(90deg); }
+      50% { transform: translateZ(0) rotateY(180deg); }
+      75% { transform: translateZ(0) rotateY(270deg); }
+    }
+    
+    @keyframes vtechGlow {
+      0%,45% { opacity:1; filter: drop-shadow(0 0 20px #00f5ff); }
+      50%,55%{ opacity:.3; filter: drop-shadow(0 0 5px #00f5ff); }
+      60%,100%{ opacity:1; filter: drop-shadow(0 0 20px #ff00f5); }
+    }
+    
+    @keyframes solutionsGlow {
+      from { filter: drop-shadow(0 0 10px rgba(0,245,255,.4)); }
+      to   { filter: drop-shadow(0 0 20px rgba(255,0,245,.6)); }
+    }
+
+    .nav-links { display:flex; list-style:none; gap:30px; }
+    .nav-links a{
+      color:#fff; text-decoration:none; transition: all .3s ease;
+      position:relative; 
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    
+    .nav-links a::after{
+      content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px;
+      background: linear-gradient(45deg, #00f5ff, #ff00f5);
+      transition: width .3s ease; 
+      will-change: width;
+    }
+    
+    .nav-links a:hover{ 
+      transform: translateZ(0) translateY(-2px); 
+      text-shadow: 0 5px 15px rgba(0,245,255,.5); 
+    }
+    .nav-links a:hover::after{ width:100%; }
+
+    /* Hero - optimized transforms */
+    .hero{
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      text-align:center; position:relative; 
+      padding-top: 80px;
+      contain: layout style paint;
+    }
+    
+    .hero-content{ 
+      z-index:10; 
+      animation: fadeInUp3d 2s ease; 
+      will-change: opacity, transform; 
+      transform: translateZ(0);
+    }
+    
+    @keyframes fadeInUp3d{
+      from{ opacity:0; transform: translate3d(0,80px,0); }
+      to  { opacity:1; transform: translate3d(0,0,0); }
+    }
+    
+    .hero h1{
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #00f5ff, #ff00f5, #00ff88);
+      background-size: 200% 200%;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: textShine3d 4s ease-in-out infinite;
+      will-change: background-position; 
+      text-shadow: 0 10px 30px rgba(0,245,255,.3);
+      contain: layout style;
+    }
+    
+    @keyframes textShine3d{
+      0%  { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+      100%{ background-position:0% 50%; }
+    }
+    
+    .hero p{ 
+      font-size:1.2rem; margin-bottom:30px; opacity:.8; 
+      animation: fadeInUp3d 2s ease .5s both; 
+    }
+
+    .cta-button{
+      display:inline-block; padding:15px 40px; border:none; border-radius:50px; color:#fff;
+      text-decoration:none; font-weight:700; background: linear-gradient(45deg, #00f5ff, #ff00f5);
+      transition: all .4s ease; animation: fadeInUp3d 2s ease 1s both; position:relative; overflow:hidden;
+      will-change: transform; 
+      transform: translateZ(0);
+      box-shadow: 0 10px 30px rgba(0,245,255,.3);
+    }
+    
+    .cta-button::before{
+      content:''; position:absolute; inset:0; left:-100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+      transition:left .5s ease; will-change: left;
+    }
+    
+    .cta-button:hover{ 
+      transform: translateZ(0) translateY(-5px); 
+      box-shadow:0 20px 40px rgba(0,245,255,.4); 
+    }
+    .cta-button:hover::before{ left:100%; }
+
+    /* Services - optimized grid */
+    .services{
+      padding: 100px 5%;
+      background: linear-gradient(135deg, rgba(0,0,0,.8), rgba(26,26,46,.8));
+      contain: layout style;
+    }
+    
+    .section-title{
+      text-align:center; font-size: clamp(2rem, 5vw, 3rem); margin-bottom:60px;
+      background: linear-gradient(45deg, #00f5ff, #ff00f5);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      animation: titleFloat 6s ease-in-out infinite;
+      will-change: transform;
+      transform: translateZ(0);
+    }
+    
+    @keyframes titleFloat{
+      0%,100%{ transform: translateZ(0) translateY(0); }
+      50%   { transform: translateZ(0) translateY(-10px); }
+    }
+    
+    .services-grid{
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+      gap:30px; max-width:1200px; margin:0 auto; 
+      contain: layout;
+    }
+    
+    .service-card{
+      background: rgba(255,255,255,.05); backdrop-filter: blur(20px);
+      border:1px solid rgba(255,255,255,.1); border-radius:20px; padding:40px; text-align:center;
+      transition: all .4s ease; position:relative; overflow:hidden; 
+      will-change: transform; 
+      transform: translateZ(0);
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+      contain: layout style paint;
+    }
+    
+    .service-card::before{
+      content:''; position:absolute; top:0; left:0; right:0; height:3px;
+      background: linear-gradient(90deg,#00f5ff,#ff00f5,#00ff88);
+      transform: scaleX(0); transition: transform .3s ease; will-change: transform;
+    }
+    
+    .service-card:hover::before{ transform: scaleX(1); }
+    .service-card:hover{ 
+      transform: translateZ(0) translateY(-20px); 
+      box-shadow:0 30px 60px rgba(0,245,255,.3); 
+    }
+    
+    .service-icon{ 
+      font-size:3rem; margin-bottom:20px; display:block; 
+      animation: bounce3d 3s infinite; 
+      will-change: transform; 
+      transform: translateZ(0);
+    }
+    
+    @keyframes bounce3d{
+      0%,20%,50%,80%,100% { transform: translateZ(0) translateY(0); }
+      40% { transform: translateZ(0) translateY(-10px); }
+      60% { transform: translateZ(0) translateY(-5px); }
+    }
+    
+    .service-card h3{ font-size:1.5rem; margin-bottom:15px; color:#00f5ff; }
+
+    /* About - optimized layout */
+    .about{
+      padding: 100px 5%; display:flex; align-items:center; gap:60px; max-width:1200px; margin:0 auto;
+      contain: layout;
+    }
+    
+    .about-content{ flex:1; }
+    .about-visual{ flex:1; position:relative; }
+
+    .code-animation{
+      background: rgba(0,0,0,.9); border-radius:15px; padding:25px;
+      font-family: Monaco, Consolas, monospace; font-size:14px; line-height:1.6; color:#00ff88;
+      position:relative; overflow:hidden; border:2px solid rgba(0,245,255,.4);
+      transform: translateZ(0);
+      transition: all .3s ease;
+      box-shadow: 0 20px 40px rgba(0,0,0,.4), inset 0 0 20px rgba(0,245,255,.1);
+      contain: layout style paint;
+    }
+    
+    .code-animation:hover{
+      transform: translateZ(0) translateY(-10px);
+      box-shadow: 0 30px 60px rgba(0,245,255,.3), inset 0 0 30px rgba(0,245,255,.15);
+    }
+    
+    .code-animation::before{
+      content:''; position:absolute; top:0; left:0; right:0; height:30px;
+      background: linear-gradient(135deg, rgba(0,245,255,.1), rgba(255,0,245,.1));
+      border-bottom:1px solid rgba(0,245,255,.2);
+    }
+    
+    .code-animation::after{
+      content:'● ● ●'; position:absolute; top:8px; left:15px; 
+      color:rgba(255,255,255,.5); font-size:12px; letter-spacing:3px;
+    }
+
+    .typing-container{ position:relative; height:200px; overflow:hidden; margin-top:15px; }
+    .typing-line{ opacity:1; white-space:nowrap; margin-bottom:3px; color:#00ff88; }
+    .typing-cursor{ 
+      display:inline-block; width:8px; height:16px; background:#00ff88; margin-left:2px; 
+      animation: blinkCursor 1s infinite; vertical-align:text-bottom; 
+    }
+    @keyframes blinkCursor{ 0%,50%{opacity:1} 51%,100%{opacity:0} }
+
+    /* Contact - optimized form */
+    .contact{
+      padding: 100px 5%; text-align:center;
+      background: linear-gradient(135deg, rgba(0,0,0,.9), rgba(26,26,46,.9));
+      contain: layout;
+    }
+    
+    .contact-form{ max-width:600px; margin:0 auto; }
+    .form-group{ margin-bottom:20px; position:relative; }
+    .form-group input, .form-group textarea{
+      width:100%; padding:15px; background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.2); border-radius:10px; color:#fff; font-size:16px;
+      transition: all .3s ease; 
+      transform: translateZ(0);
+    }
+    
+    .form-group input:focus, .form-group textarea:focus{
+      outline:none; border-color:#00f5ff; box-shadow:0 0 20px rgba(0,245,255,.3);
+      transform: translateZ(0) translateY(-2px);
+    }
+    
+    .submit-btn{
+      width:100%; padding:15px; border:none; border-radius:10px; color:#fff; font-weight:700; cursor:pointer;
+      background: linear-gradient(45deg, #00f5ff, #ff00f5);
+      transition: all .3s ease; 
+      will-change: transform; 
+      transform: translateZ(0);
+    }
+    
+    .submit-btn:hover{ 
+      transform: translateZ(0) translateY(-5px); 
+      box-shadow:0 15px 35px rgba(0,245,255,.4); 
+    }
+
+    /* Footer */
+    footer{
+      padding: 40px 5%; background: rgba(0,0,0,.9); text-align:center;
+      border-top:1px solid rgba(255,255,255,.1); 
+    }
+
+    /* Scroll animations - optimized */
+    .animate-on-scroll{
+      opacity:0; transform: translate3d(0,80px,0);
+      transition: all 1s ease; will-change: opacity, transform;
+    }
+    .animate-on-scroll.animated{ opacity:1; transform: translate3d(0,0,0); }
+
+    /* Performance optimizations for reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+        transition-duration:.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Responsive optimizations */
+    @media (max-width: 768px){
+      .nav-links{ display:none; }
+      .about{ flex-direction:column; }
+      .services-grid{ grid-template-columns: 1fr; }
+      .service-card:hover{ transform: translateY(-10px); }
+      .code-animation{ transform: none; }
+      .neural-network, .geometric-shapes, .matrix-rain { display: none; }
+      .bg-animation { opacity: 0.1; }
+      
+      /* Simplify mobile animations */
+      .hero-content { animation: fadeInUp 1s ease; }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+
+    /* High refresh rate optimization */
+    @media (min-resolution: 120dpi) {
+      .node, .geo-shape, .matrix-column {
+        animation-timing-function: linear;
+      }
+    }
+
+    /* Dark mode optimizations */
+    @media (prefers-color-scheme: dark) {
+      body { background: linear-gradient(135deg, #000 0%, #111 50%, #0a0a0a 100%); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Enhanced Neural Network Background -->
+  <div class="bg-animation" aria-hidden="true" role="presentation">
+    <div class="neural-network" id="neuralNetwork"></div>
+    <div class="geometric-shapes" id="geometricShapes"></div>
+    <div class="matrix-rain" id="matrixRain"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <nav aria-label="Primary navigation">
+      <div class="logo" aria-label="V-Technology Solutions">
+        <span class="v-tech"><span class="spinning-v">V</span>-Technology</span>
+        <span class="solutions">Solutions</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero" aria-labelledby="hero-title">
+    <div class="hero-content">
+      <h1 id="hero-title">Digital Innovation</h1>
+      <p>Crafting exceptional digital experiences through cutting-edge technology.</p>
+      <a href="#services" class="cta-button">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services" aria-labelledby="services-title">
+    <h2 class="section-title animate-on-scroll" id="services-title">Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card animate-on-scroll">
+        <span class="service-icon" aria-hidden="true">📱</span>
+        <h3>Mobile App Development</h3>
+        <p>Native and cross-platform mobile apps with stunning UI and seamless performance.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <span class="service-icon" aria-hidden="true">💻</span>
+        <h3>Web Development</h3>
+        <p>Modern, responsive websites and web apps built with the latest technologies.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <span class="service-icon" aria-hidden="true">🎨</span>
+        <h3>UI/UX Design</h3>
+        <p>Beautiful, intuitive designs that enhance user experience and drive engagement.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <span class="service-icon" aria-hidden="true">🛒</span>
+        <h3>E-Commerce Solutions</h3>
+        <p>Complete e-commerce platforms with payments, analytics, and inventory management.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <span class="service-icon" aria-hidden="true">⚙️</span>
+        <h3>Full-Stack Development</h3>
+        <p>End-to-end builds from database to frontend with scalable architecture.</p>
+      </div>
+      <div class="service-card animate-on-scroll">
+        <span class="service-icon" aria-hidden="true">☁️</span>
+        <h3>Web Hosting Services</h3>
+        <p>Reliable, secure hosting with 99.9% uptime and 24/7 support.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about" aria-labelledby="about-title">
+    <div class="about-content animate-on-scroll">
+      <h2 class="section-title" id="about-title">About V-Technology</h2>
+      <p>
+        We are a passionate team of developers and designers dedicated to creating digital solutions that make a difference.
+        Our focus spans mobile apps, web applications, and thoughtful UI/UX—always with performance, accessibility, and longevity in mind.
+      </p>
+      <br/>
+      <p>
+        Mission-wise, we help businesses adopt technology that solves today's problems while setting them up for tomorrow.
+        That means clear architecture, maintainable code, and an obsession with user delight.
+      </p>
+    </div>
+    <div class="about-visual animate-on-scroll" aria-hidden="true">
+      <div class="code-animation">
+        <div class="typing-container">
+          <div class="typing-line" data-text="const vtechnology = {"></div>
+          <div class="typing-line" data-text="  mission: &quot;Innovation&quot;,"></div>
+          <div class="typing-line" data-text="  passion: &quot;Excellence&quot;,"></div>
+          <div class="typing-line" data-text="  expertise: [&quot;React&quot;, &quot;Node.js&quot;,"></div>
+          <div class="typing-line" data-text="    &quot;Flutter&quot;, &quot;UI/UX&quot;],"></div>
+          <div class="typing-line" data-text="  clients: &quot;2,876+ satisfied&quot;,"></div>
+          <div class="typing-line" data-text="  status: &quot;Building the future&quot;"></div>
+          <div class="typing-line" data-text="};"></div>
+          <div class="typing-cursor"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <h2 class="section-title animate-on-scroll" id="contact-title">Get In Touch</h2>
+    <div class="contact-form animate-on-scroll">
+      <form aria-label="Contact form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Your Name" autocomplete="name" required aria-label="Your Name"/>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Your Email" autocomplete="email" required aria-label="Your Email"/>
+        </div>
+        <div class="form-group">
+          <input type="text" name="project_type" placeholder="Project Type" aria-label="Project Type"/>
+        </div>
+        <div class="form-group">
+          <textarea rows="5" name="message" placeholder="Tell us about your project" required aria-label="Your Message"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 V-Technology Solutions. Crafting digital excellence.</p>
+  </footer>
+
+  <script>
+    // Performance-optimized variables
+    let animationId;
+    let isVisible = true;
+    let isDesktop = window.innerWidth > 768;
+    const preferesReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ADDED: master switch to disable mouse-move-driven effects
+    const ENABLE_MOUSEMOVE_EFFECTS = false;
+
+    // Throttled resize handler
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        isDesktop = window.innerWidth > 768;
+        if (!isDesktop) {
+          // Clean up desktop-only animations on mobile
+          document.querySelectorAll('.service-card, .hero-content').forEach(el => {
+            el.style.transform = '';
+          });
+        }
+      }, 250);
+    });
+
+    // Create Neural Network Background (Desktop only, optimized)
+    function createNeuralNetwork() {
+      if (!isDesktop || preferesReducedMotion) return;
+      
+      const container = document.getElementById('neuralNetwork');
+      const fragment = document.createDocumentFragment();
+      const nodes = [];
+      const nodeCount = Math.min(20, Math.floor(window.innerWidth / 80)); // Responsive node count
+
+      // Create nodes with optimized positioning
+      for (let i = 0; i < nodeCount; i++) {
+        const node = document.createElement('div');
+        node.className = 'node';
+        const x = (i / nodeCount) * 100 + Math.random() * 10;
+        const y = Math.random() * 100;
+        node.style.left = x + '%';
+        node.style.top = y + '%';
+        node.style.animationDelay = Math.random() * 8 + 's';
+
+        // Optimized color selection
+        const colors = ['#00f5ff', '#ff00f5', '#00ff88'];
+        const color = colors[i % colors.length];
+        node.style.background = color;
+        node.style.boxShadow = `0 0 10px ${color}, 0 0 20px ${color}`;
+
+        fragment.appendChild(node);
+        nodes.push({ element: node, x, y });
+      }
+
+      // Create optimized connections
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 25 && Math.random() > 0.7) {
+            const connection = document.createElement('div');
+            connection.className = 'connection';
+
+            const angle = Math.atan2(nodes[j].y - nodes[i].y, nodes[j].x - nodes[i].x);
+            connection.style.left = nodes[i].x + '%';
+            connection.style.top = nodes[i].y + '%';
+            connection.style.width = distance + '%';
+            connection.style.transform = `rotate(${angle}rad)`;
+            connection.style.animationDelay = Math.random() * 6 + 's';
+
+            fragment.appendChild(connection);
+          }
+        }
+      }
+
+      container.appendChild(fragment);
+    }
+
+    // Create Geometric Shapes (Optimized)
+    function createGeometricShapes() {
+      if (!isDesktop || preferesReducedMotion) return;
+
+      const container = document.getElementById('geometricShapes');
+      const fragment = document.createDocumentFragment();
+      const shapeTypes = ['geo-triangle', 'geo-hexagon', 'geo-diamond'];
+      const shapeCount = Math.min(12, Math.floor(window.innerWidth / 120));
+
+      for (let i = 0; i < shapeCount; i++) {
+        const shape = document.createElement('div');
+        const shapeType = shapeTypes[i % shapeTypes.length];
+        shape.className = `geo-shape ${shapeType}`;
+
+        shape.style.left = Math.random() * 100 + '%';
+        shape.style.top = Math.random() * 100 + '%';
+        shape.style.animationDelay = Math.random() * 15 + 's';
+        shape.style.animationDuration = (12 + Math.random() * 8) + 's';
+
+        fragment.appendChild(shape);
+      }
+
+      container.appendChild(fragment);
+    }
+
+    // Create Matrix Rain Effect (Optimized)
+    function createMatrixRain() {
+      if (!isDesktop || preferesReducedMotion) return;
+
+      const container = document.getElementById('matrixRain');
+      const fragment = document.createDocumentFragment();
+      const characters = '0123456789ABCDEF';
+      const columnCount = Math.min(Math.floor(window.innerWidth / 25), 80);
+
+      for (let i = 0; i < columnCount; i++) {
+        const column = document.createElement('div');
+        column.className = 'matrix-column';
+        column.style.left = (i * (window.innerWidth / columnCount)) + 'px';
+        column.style.animationDuration = (8 + Math.random() * 8) + 's';
+        column.style.animationDelay = Math.random() * 5 + 's';
+
+        // Generate optimized character string
+        let text = '';
+        const lineCount = Math.floor(15 + Math.random() * 10);
+        for (let j = 0; j < lineCount; j++) {
+          text += characters.charAt(Math.floor(Math.random() * characters.length)) + '<br>';
+        }
+        column.innerHTML = text;
+
+        fragment.appendChild(column);
+      }
+
+      container.appendChild(fragment);
+    }
+
+    // Initialize background effects with performance checks
+    if (isDesktop && !preferesReducedMotion) {
+      // Use requestIdleCallback if available for non-critical animations
+      if (window.requestIdleCallback) {
+        requestIdleCallback(() => {
+          createNeuralNetwork();
+          createGeometricShapes();
+          createMatrixRain();
+        });
+      } else {
+        setTimeout(() => {
+          createNeuralNetwork();
+          createGeometricShapes();
+          createMatrixRain();
+        }, 100);
+      }
+    }
+
+    // ADDED: anchor scrolling that respects fixed header height
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const headerEl = document.querySelector('header');
+        const headerOffset = headerEl ? headerEl.offsetHeight : 0;
+        const y = target.getBoundingClientRect().top + window.scrollY - headerOffset + 2;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }, { passive: false });
+    });
+
+    // Intersection Observer for scroll animations (optimized)
+    const observerOptions = { 
+      threshold: 0.1, 
+      rootMargin: '0px 0px -30px 0px'
+    };
+    
+    const scrollObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          scrollObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      scrollObserver.observe(el);
+    });
+
+    // Throttled header scroll effect
+    let ticking = false;
+    let lastScrollY = 0;
+    
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }, { passive: true });
+    
+    function updateHeader() {
+      const currentScrollY = window.scrollY;
+      const header = document.querySelector('header');
+      
+      if (currentScrollY > 50 && lastScrollY <= 50) {
+        header.classList.add('scrolled');
+      } else if (currentScrollY <= 50 && lastScrollY > 50) {
+        header.classList.remove('scrolled');
+      }
+      
+      lastScrollY = currentScrollY;
+      ticking = false;
+    }
+
+    // Optimized form handling
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const submitBtn = form.querySelector('.submit-btn');
+      const originalText = submitBtn.textContent;
+      const originalBg = submitBtn.style.background;
+
+      submitBtn.textContent = 'Sending...';
+      submitBtn.style.background = 'linear-gradient(45deg, #00ff88, #00f5ff)';
+      submitBtn.style.transform = 'translateZ(0) translateY(-3px)';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        submitBtn.textContent = 'Message Sent!';
+        submitBtn.style.transform = 'translateZ(0) translateY(-8px)';
+        setTimeout(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.style.background = originalBg;
+          submitBtn.style.transform = '';
+          submitBtn.disabled = false;
+          form.reset();
+        }, 2000);
+      }, 1500);
+    });
+
+    // Optimized 3D card effects (desktop only) — DISABLED via flag
+    if (ENABLE_MOUSEMOVE_EFFECTS && isDesktop && !preferesReducedMotion) {
+      const serviceCards = document.querySelectorAll('.service-card');
+      serviceCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+        
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const cx = rect.width / 2;
+          const cy = rect.height / 2;
+          const rx = (y - cy) / 15;
+          const ry = (cx - x) / 15;
+          
+          requestAnimationFrame(() => {
+            card.style.transform = `translateZ(0) translateY(-20px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+          });
+        }, { passive: true });
+        
+        card.addEventListener('mouseleave', () => {
+          requestAnimationFrame(() => {
+            card.style.transform = '';
+          });
+        });
+      });
+
+      // Hero 3D cursor effect
+      const hero = document.querySelector('.hero');
+      const heroContent = document.querySelector('.hero-content');
+      let heroAnimationId;
+      
+      hero.addEventListener('mousemove', (e) => {
+        if (heroAnimationId) return;
+        
+        heroAnimationId = requestAnimationFrame(() => {
+          const rect = hero.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const cx = rect.width / 2;
+          const cy = rect.height / 2;
+          const rx = (y - cy) / 80;
+          const ry = (cx - x) / 80;
+          
+          heroContent.style.transform = `translateZ(0) rotateX(${rx}deg) rotateY(${ry}deg)`;
+          heroAnimationId = null;
+        });
+      }, { passive: true });
+      
+      hero.addEventListener('mouseleave', () => {
+        if (heroAnimationId) {
+          cancelAnimationFrame(heroAnimationId);
+          heroAnimationId = null;
+        }
+        heroContent.style.transform = '';
+      });
+    }
+
+    // Cursor light effect — DISABLED via flag
+    function createCursorLight(){
+      if (!ENABLE_MOUSEMOVE_EFFECTS || !isDesktop || preferesReducedMotion) return;
+      
+      const lightOrb = document.createElement('div');
+      lightOrb.style.cssText = `
+        position: fixed; width: 300px; height: 300px; pointer-events: none; z-index: -1;
+        background: radial-gradient(circle, rgba(0,245,255,.06) 0%, rgba(255,0,245,.03) 50%, transparent 70%);
+        border-radius: 50%; transition: transform .15s ease-out; mix-blend-mode: screen;
+        will-change: transform; transform: translateZ(0);
+      `;
+      document.body.appendChild(lightOrb);
+      
+      let lightAnimationId;
+      document.addEventListener('mousemove', (e) => {
+        if (lightAnimationId) return;
+        
+        lightAnimationId = requestAnimationFrame(() => {
+          lightOrb.style.transform = `translate3d(${e.clientX - 150}px, ${e.clientY - 150}px, 0)`;
+          lightAnimationId = null;
+        });
+      }, { passive: true });
+    }
+    
+    createCursorLight();
+
+    // Optimized typewriter effect
+    function startTypewriterEffect() {
+      const typingLines = document.querySelectorAll('.typing-line');
+      const cursor = document.querySelector('.typing-cursor');
+      let line = 0, ch = 0, typeTimeout;
+
+      function type() {
+        if (line >= typingLines.length) return;
+        
+        const current = typingLines[line];
+        const text = current.getAttribute('data-text');
+        
+        if (ch < text.length) {
+          current.textContent = text.substring(0, ch + 1);
+          ch++;
+          current.appendChild(cursor);
+          
+          typeTimeout = setTimeout(type, Math.random() * 40 + 30);
+        } else {
+          line++;
+          ch = 0;
+          if (line < typingLines.length) {
+            typeTimeout = setTimeout(() => {
+              typingLines[line].appendChild(cursor);
+              type();
+            }, 200);
+          }
+        }
+      }
+      
+      if (typingLines.length && cursor) {
+        typingLines[0].appendChild(cursor);
+        type();
+      }
+      
+      // Cleanup function
+      return () => {
+        if (typeTimeout) clearTimeout(typeTimeout);
+      };
+    }
+
+    // Trigger typewriter when code block enters view
+    let typewriterCleanup;
+    const aboutObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            typewriterCleanup = startTypewriterEffect();
+          }, 300);
+          aboutObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    const codeAnimation = document.querySelector('.code-animation');
+    if (codeAnimation) aboutObserver.observe(codeAnimation);
+
+    // Visibility-based animation management
+    document.addEventListener('visibilitychange', () => {
+      isVisible = !document.hidden;
+      const animations = document.querySelectorAll('.node, .geo-shape, .matrix-column');
+      
+      animations.forEach(el => {
+        el.style.animationPlayState = isVisible ? 'running' : 'paused';
+      });
+    });
+
+    // Performance monitoring and optimization
+    let performanceWarningShown = false;
+    function checkPerformance() {
+      if (performance.now() > 5000 && !performanceWarningShown) {
+        const animations = document.querySelectorAll('.node, .connection, .geo-shape');
+        if (animations.length > 50) {
+          // Reduce animation count if performance is poor
+          animations.forEach((el, index) => {
+            if (index % 2 === 0) el.style.display = 'none';
+          });
+          performanceWarningShown = true;
+        }
+      }
+    }
+    
+    if (isDesktop) {
+      setTimeout(checkPerformance, 5000);
+    }
+
+    // Section-level performance optimization
+    const performanceObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const animations = entry.target.querySelectorAll('.service-icon');
+        animations.forEach(el => {
+          el.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+        });
+      });
+    }, { threshold: 0.2 });
+    
+    document.querySelectorAll('section').forEach(section => {
+      performanceObserver.observe(section);
+    });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+      if (typewriterCleanup) typewriterCleanup();
+      if (animationId) cancelAnimationFrame(animationId);
+      
+      // Clean up observers
+      scrollObserver.disconnect();
+      performanceObserver.disconnect();
+      if (aboutObserver) aboutObserver.disconnect();
+    });
+
+    // Initialize performance monitoring
+    if ('performance' in window && 'observe' in window.performance) {
+      const perfObserver = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.entryType === 'measure' && entry.duration > 16) {
+            console.warn('Performance warning: Animation frame took', entry.duration, 'ms');
+          }
+        }
+      });
+      
+      try {
+        perfObserver.observe({ entryTypes: ['measure', 'navigation'] });
+      } catch (e) {
+        // Performance Observer not supported
+        console.log('Performance Observer not supported');
+      }
+    }
+
+    // Prefetch hover states for better UX
+    const prefetchHoverStates = () => {
+      const style = document.createElement('style');
+      style.textContent = `
+        .service-card:hover, .cta-button:hover, .submit-btn:hover {
+          /* Prefetch hover states */
+        }
+      `;
+      document.head.appendChild(style);
+    };
+    
+    // Run prefetch after initial load
+    setTimeout(prefetchHoverStates, 2000);
+
+    // Add loading state management
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+      
+      // Optimize images and resources after load
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        if (img.loading !== 'lazy') {
+          img.loading = 'lazy';
+        }
+      });
+    });
+
+    // Service Worker registration for better caching (if needed)
+    if ('serviceWorker' in navigator && 'production' === 'production') {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => console.log('SW registered'))
+          .catch(error => console.log('SW registration failed'));
+      });
+    }
+
+    // Final performance check and cleanup
+    setTimeout(() => {
+      // Remove unused CSS classes after animations complete
+      const unusedElements = document.querySelectorAll('.animate-on-scroll:not(.animated)');
+      if (unusedElements.length === 0) {
+        const style = document.createElement('style');
+        style.textContent = '.animate-on-scroll { transition: none !important; }';
+        document.head.appendChild(style);
+      }
+    }, 5000);
+
+  </script>
+</body>
+</html>
